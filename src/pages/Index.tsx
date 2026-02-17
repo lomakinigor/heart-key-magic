@@ -85,7 +85,7 @@ const Index = () => {
     <SlidePhotoWow key="photo" clickCount={clickCount} />,
     <SlideViral key="viral" clickCount={clickCount} />,
     <SlidePartner key="partner" clickCount={clickCount} />,
-    <SlideCTA key="cta" clickCount={clickCount} onRestart={() => { setCurrentSlide(0); setClickCount(0); }} />,
+    <SlideCTA key="cta" clickCount={clickCount} />,
   ];
 
   return (
@@ -122,6 +122,7 @@ const Index = () => {
         onPrev={prevSlide}
         onNext={nextSlide}
         onGoTo={(i) => { setCurrentSlide(i); setClickCount(0); }}
+        onRestart={() => { setCurrentSlide(0); setClickCount(0); }}
       />
 
       {/* Speaker notes */}
