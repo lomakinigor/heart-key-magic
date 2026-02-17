@@ -24,7 +24,7 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
         <motion.h2
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="heading-display text-5xl md:text-7xl text-gradient-pink text-center mb-6"
+          className="heading-display text-3xl md:text-7xl text-gradient-pink text-center mb-4 md:mb-6"
         >
           Из обычного фото — в историю любви
         </motion.h2>
@@ -33,14 +33,14 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="text-center text-xl text-muted-foreground mb-12"
+          className="text-center text-base md:text-xl text-muted-foreground mb-6 md:mb-12"
         >
           Кликните, чтобы увидеть трансформацию →
         </motion.p>
 
         {/* Photo transformation */}
-        <div className="flex justify-center mb-12">
-        <div className="relative w-[500px] h-[360px] rounded-2xl overflow-hidden" style={{ animation: "pulse-glow 3s ease-in-out infinite" }}>
+        <div className="flex justify-center mb-6 md:mb-12 px-4">
+        <div className="relative w-full max-w-[500px] h-[240px] md:h-[360px] rounded-2xl overflow-hidden" style={{ animation: "pulse-glow 3s ease-in-out infinite" }}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={phase}
@@ -93,7 +93,7 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              className="grid grid-cols-3 gap-6 max-w-3xl mx-auto"
+              className="grid grid-cols-3 gap-3 md:gap-6 max-w-3xl mx-auto"
             >
               {[
                 { feature: "2 свидания", price: "49 ₽", color: "text-neon-pink" },
@@ -105,10 +105,10 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: i * 0.15 }}
-                  className="glass-card-strong p-6 text-center"
+                  className="glass-card-strong p-3 md:p-6 text-center"
                 >
-                  <p className="text-lg text-foreground/80 mb-2">{item.feature}</p>
-                  <p className={`text-3xl font-bold ${item.color}`}>{item.price}</p>
+                  <p className="text-sm md:text-lg text-foreground/80 mb-1 md:mb-2">{item.feature}</p>
+                  <p className={`text-2xl md:text-3xl font-bold ${item.color}`}>{item.price}</p>
                 </motion.div>
               ))}
             </motion.div>

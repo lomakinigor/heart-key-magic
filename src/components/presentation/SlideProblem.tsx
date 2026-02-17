@@ -17,7 +17,7 @@ const SlideProblem = ({ clickCount }: Props) => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="heading-display text-5xl md:text-7xl text-gradient-pink mb-16"
+          className="heading-display text-3xl md:text-7xl text-gradient-pink mb-8 md:mb-16"
         >
           Почему свидания стали скучными?
         </motion.h2>
@@ -28,7 +28,7 @@ const SlideProblem = ({ clickCount }: Props) => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex justify-center gap-8 mb-16"
+              className="flex justify-center gap-3 md:gap-8 mb-8 md:mb-16"
             >
               {boringItems.map((item, i) => (
                 <motion.div
@@ -36,10 +36,10 @@ const SlideProblem = ({ clickCount }: Props) => {
                   initial={{ y: 40, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: item.delay, duration: 0.5 }}
-                  className="glass-card p-8 flex flex-col items-center gap-4 w-48"
+                  className="glass-card p-4 md:p-8 flex flex-col items-center gap-2 md:gap-4 w-24 md:w-48"
                 >
-                  <item.icon size={48} className="text-muted-foreground" strokeWidth={1.2} />
-                  <span className="text-xl text-muted-foreground line-through decoration-primary/60">
+                  <item.icon size={32} className="text-muted-foreground md:w-12 md:h-12" strokeWidth={1.2} />
+                  <span className="text-sm md:text-xl text-muted-foreground line-through decoration-primary/60">
                     {item.label}
                   </span>
                 </motion.div>
@@ -55,9 +55,9 @@ const SlideProblem = ({ clickCount }: Props) => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.7 }}
-              className="mb-12"
+              className="mb-6 md:mb-12"
             >
-              <p className="text-2xl md:text-3xl text-foreground/70 font-light leading-relaxed">
+              <p className="text-lg md:text-3xl text-foreground/70 font-light leading-relaxed">
                 Она ждёт <span className="text-neon-pink font-semibold">эмоций</span>.
                 <br />
                 Ты не знаешь, чем <span className="text-neon-lavender font-semibold">удивить</span>.
@@ -74,7 +74,7 @@ const SlideProblem = ({ clickCount }: Props) => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, type: "spring" }}
             >
-              <p className="text-4xl md:text-6xl font-bold text-gradient-gold heading-display">
+              <p className="text-3xl md:text-6xl font-bold text-gradient-gold heading-display">
                 Мы решили это.
               </p>
             </motion.div>

@@ -16,13 +16,13 @@ const SlideViral = ({ clickCount }: Props) => {
         <motion.h2
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="heading-display text-5xl md:text-7xl text-gradient-pink mb-16"
+          className="heading-display text-3xl md:text-7xl text-gradient-pink mb-8 md:mb-16"
         >
           Это приложение распространяется само.
         </motion.h2>
 
         {/* Viral paths */}
-        <div className="space-y-6 mb-16">
+        <div className="space-y-4 md:space-y-6 mb-8 md:mb-16">
           {viralPaths.map((path, i) => (
             <AnimatePresence key={i}>
               {clickCount >= i + 1 && (
@@ -30,18 +30,18 @@ const SlideViral = ({ clickCount }: Props) => {
                   initial={{ x: -80, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="glass-card p-6 flex items-center justify-center gap-6 max-w-3xl mx-auto"
+                  className="glass-card p-3 md:p-6 flex items-center justify-center gap-2 md:gap-6 max-w-3xl mx-auto flex-wrap"
                 >
-                  <div className="flex items-center gap-3">
-                    <path.icon size={28} className="text-neon-pink" strokeWidth={1.5} />
-                    <span className="text-xl font-medium">{path.from}</span>
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <path.icon size={20} className="text-neon-pink md:w-7 md:h-7" strokeWidth={1.5} />
+                    <span className="text-sm md:text-xl font-medium">{path.from}</span>
                   </div>
-                  <ArrowRight size={24} className="text-neon-gold" />
-                  <span className="text-xl text-foreground/70">{path.to}</span>
-                  <ArrowRight size={24} className="text-neon-gold" />
-                  <div className="flex items-center gap-2">
-                    <Users size={24} className="text-neon-lavender" />
-                    <span className="text-xl font-semibold text-neon-lavender">{path.result}</span>
+                  <ArrowRight size={16} className="text-neon-gold md:w-6 md:h-6" />
+                  <span className="text-sm md:text-xl text-foreground/70">{path.to}</span>
+                  <ArrowRight size={16} className="text-neon-gold md:w-6 md:h-6" />
+                  <div className="flex items-center gap-1 md:gap-2">
+                    <Users size={18} className="text-neon-lavender md:w-6 md:h-6" />
+                    <span className="text-sm md:text-xl font-semibold text-neon-lavender">{path.result}</span>
                   </div>
                 </motion.div>
               )}
@@ -56,7 +56,7 @@ const SlideViral = ({ clickCount }: Props) => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: "spring", duration: 0.6 }}
             >
-              <p className="text-4xl md:text-6xl font-bold heading-display text-gradient-gold">
+              <p className="text-2xl md:text-6xl font-bold heading-display text-gradient-gold">
                 Каждое свидание = новые пользователи.
               </p>
             </motion.div>
