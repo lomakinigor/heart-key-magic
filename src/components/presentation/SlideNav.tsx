@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
 
 interface SlideNavProps {
   current: number;
@@ -6,9 +6,10 @@ interface SlideNavProps {
   onPrev: () => void;
   onNext: () => void;
   onGoTo: (i: number) => void;
+  onRestart?: () => void;
 }
 
-const SlideNav = ({ current, total, onPrev, onNext, onGoTo }: SlideNavProps) => (
+const SlideNav = ({ current, total, onPrev, onNext, onGoTo, onRestart }: SlideNavProps) => (
   <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 glass-card px-6 py-3"
     onClick={(e) => e.stopPropagation()}
   >
@@ -30,6 +31,12 @@ const SlideNav = ({ current, total, onPrev, onNext, onGoTo }: SlideNavProps) => 
       <ChevronRight size={20} />
     </button>
     <span className="text-muted-foreground text-xs ml-2">{current + 1}/{total}</span>
+    {current === total - 1 && onRestart && (
+      <button onClick={onRestart} className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-xs ml-2">
+        <RotateCcw size={14} />
+        В начало
+      </button>
+    )}
   </div>
 );
 
