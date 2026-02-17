@@ -1,0 +1,36 @@
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+interface SlideNavProps {
+  current: number;
+  total: number;
+  onPrev: () => void;
+  onNext: () => void;
+  onGoTo: (i: number) => void;
+}
+
+const SlideNav = ({ current, total, onPrev, onNext, onGoTo }: SlideNavProps) => (
+  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 glass-card px-6 py-3"
+    onClick={(e) => e.stopPropagation()}
+  >
+    <button onClick={onPrev} className="text-foreground/60 hover:text-foreground transition-colors disabled:opacity-30" disabled={current === 0}>
+      <ChevronLeft size={20} />
+    </button>
+    <div className="flex gap-2">
+      {Array.from({ length: total }).map((_, i) => (
+        <button
+          key={i}
+          onClick={() => onGoTo(i)}
+          className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            i === current ? "bg-primary scale-125 shadow-[0_0_10px_hsla(330,100%,65%,0.5)]" : "bg-foreground/20 hover:bg-foreground/40"
+          }`}
+        />
+      ))}
+    </div>
+    <button onClick={onNext} className="text-foreground/60 hover:text-foreground transition-colors disabled:opacity-30" disabled={current === total - 1}>
+      <ChevronRight size={20} />
+    </button>
+    <span className="text-muted-foreground text-xs ml-2">{current + 1}/{total}</span>
+  </div>
+);
+
+export default SlideNav;
