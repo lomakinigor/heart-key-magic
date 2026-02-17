@@ -16,7 +16,7 @@ const SlideCTA = ({ clickCount }: Props) => {
         <motion.h2
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="heading-display text-5xl md:text-7xl text-gradient-pink mb-16"
+          className="heading-display text-3xl md:text-7xl text-gradient-pink mb-8 md:mb-16"
         >
           Сегодня вы можете:
         </motion.h2>
@@ -29,12 +29,12 @@ const SlideCTA = ({ clickCount }: Props) => {
                   initial={{ x: -60, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="glass-card p-6 flex items-center gap-5"
+                  className="glass-card p-4 md:p-6 flex items-center gap-3 md:gap-5"
                 >
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-neon-pink to-neon-lavender flex items-center justify-center flex-shrink-0">
-                    <item.icon size={24} className="text-foreground" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-neon-pink to-neon-lavender flex items-center justify-center flex-shrink-0">
+                    <item.icon size={20} className="text-foreground md:w-6 md:h-6" />
                   </div>
-                  <span className="text-xl md:text-2xl font-medium text-foreground text-left">✔ {item.label}</span>
+                  <span className="text-base md:text-2xl font-medium text-foreground text-left">✔ {item.label}</span>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -49,7 +49,7 @@ const SlideCTA = ({ clickCount }: Props) => {
               transition={{ type: "spring", duration: 0.6 }}
               className="space-y-8"
             >
-              <p className="text-5xl md:text-7xl font-bold heading-display text-gradient-gold">
+              <p className="text-3xl md:text-7xl font-bold heading-display text-gradient-gold">
                 Начните сегодня.
               </p>
               <a href="https://mood-date-maker.lovable.app" target="_blank" rel="noopener noreferrer"

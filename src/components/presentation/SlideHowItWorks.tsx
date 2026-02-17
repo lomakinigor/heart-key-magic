@@ -23,12 +23,12 @@ const SlideHowItWorks = ({ clickCount }: Props) => {
         <motion.h2
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="heading-display text-5xl md:text-7xl text-gradient-pink text-center mb-16"
+          className="heading-display text-3xl md:text-7xl text-gradient-pink text-center mb-8 md:mb-16"
         >
           3 шага до идеального свидания
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
           {/* Steps */}
           <div className="space-y-6">
             {steps.map((step, i) => (
@@ -38,11 +38,11 @@ const SlideHowItWorks = ({ clickCount }: Props) => {
                     initial={{ x: -60, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="glass-card p-6 flex items-center gap-5"
+                    className="glass-card p-4 md:p-6 flex items-center gap-3 md:gap-5"
                   >
-                    <span className="text-4xl">{step.num}</span>
-                    <step.icon size={32} className="text-neon-pink" strokeWidth={1.5} />
-                    <span className="text-xl md:text-2xl font-medium text-foreground">{step.label}</span>
+                    <span className="text-2xl md:text-4xl">{step.num}</span>
+                    <step.icon size={24} className="text-neon-pink md:w-8 md:h-8" strokeWidth={1.5} />
+                    <span className="text-base md:text-2xl font-medium text-foreground">{step.label}</span>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -64,11 +64,11 @@ const SlideHowItWorks = ({ clickCount }: Props) => {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: i * 0.15, duration: 0.4 }}
-                    className="glass-card-strong p-5 flex flex-col items-center gap-3 text-center"
+                    className="glass-card-strong p-3 md:p-5 flex flex-col items-center gap-2 md:gap-3 text-center"
                     style={{ animation: `float ${3 + i * 0.5}s ease-in-out infinite`, animationDelay: `${i * 0.3}s` }}
                   >
-                    <card.icon size={36} className="text-neon-gold" strokeWidth={1.5} />
-                    <span className="text-lg font-medium text-foreground">✔ {card.label}</span>
+                    <card.icon size={24} className="text-neon-gold md:w-9 md:h-9" strokeWidth={1.5} />
+                    <span className="text-sm md:text-lg font-medium text-foreground">✔ {card.label}</span>
                   </motion.div>
                 ))}
               </motion.div>

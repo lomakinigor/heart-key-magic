@@ -10,7 +10,7 @@ const SlidePartner = ({ clickCount }: Props) => {
         <motion.h2
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="heading-display text-5xl md:text-7xl text-gradient-gold mb-16"
+          className="heading-display text-3xl md:text-7xl text-gradient-gold mb-8 md:mb-16"
         >
           Партнёрская программа 2 уровня
         </motion.h2>
@@ -25,34 +25,34 @@ const SlidePartner = ({ clickCount }: Props) => {
               className="flex flex-col items-center gap-6 mb-16"
             >
               {/* Level 1 */}
-              <div className="glass-card-strong p-8 flex items-center gap-6 min-w-[400px]">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-neon-pink to-neon-lavender flex items-center justify-center">
-                  <Users size={32} className="text-foreground" />
+              <div className="glass-card-strong p-4 md:p-8 flex items-center gap-3 md:gap-6 w-full max-w-[400px]">
+                <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-neon-pink to-neon-lavender flex items-center justify-center flex-shrink-0">
+                  <Users size={20} className="text-foreground md:w-8 md:h-8" />
                 </div>
                 <div className="text-left">
-                  <p className="text-2xl font-bold text-foreground">Вы</p>
-                  <p className="text-lg text-muted-foreground">Уровень 1</p>
+                  <p className="text-lg md:text-2xl font-bold text-foreground">Вы</p>
+                  <p className="text-sm md:text-lg text-muted-foreground">Уровень 1</p>
                 </div>
-                <div className="ml-auto flex items-center gap-2">
-                  <Percent size={28} className="text-neon-gold" />
-                  <span className="text-5xl font-bold text-gradient-gold">20%</span>
+                <div className="ml-auto flex items-center gap-1 md:gap-2">
+                  <Percent size={20} className="text-neon-gold md:w-7 md:h-7" />
+                  <span className="text-3xl md:text-5xl font-bold text-gradient-gold">20%</span>
                 </div>
               </div>
 
               <ArrowDown size={32} className="text-neon-gold" />
 
               {/* Level 2 */}
-              <div className="glass-card p-8 flex items-center gap-6 min-w-[400px]">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-neon-lavender to-neon-gold/50 flex items-center justify-center">
-                  <Users size={32} className="text-foreground" />
+              <div className="glass-card p-4 md:p-8 flex items-center gap-3 md:gap-6 w-full max-w-[400px]">
+                <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-neon-lavender to-neon-gold/50 flex items-center justify-center flex-shrink-0">
+                  <Users size={20} className="text-foreground md:w-8 md:h-8" />
                 </div>
                 <div className="text-left">
-                  <p className="text-2xl font-bold text-foreground">Ваш партнёр</p>
-                  <p className="text-lg text-muted-foreground">Уровень 2</p>
+                  <p className="text-lg md:text-2xl font-bold text-foreground">Ваш партнёр</p>
+                  <p className="text-sm md:text-lg text-muted-foreground">Уровень 2</p>
                 </div>
-                <div className="ml-auto flex items-center gap-2">
-                  <Percent size={28} className="text-neon-lavender" />
-                  <span className="text-5xl font-bold text-neon-lavender">10%</span>
+                <div className="ml-auto flex items-center gap-1 md:gap-2">
+                  <Percent size={20} className="text-neon-lavender md:w-7 md:h-7" />
+                  <span className="text-3xl md:text-5xl font-bold text-neon-lavender">10%</span>
                 </div>
               </div>
             </motion.div>
