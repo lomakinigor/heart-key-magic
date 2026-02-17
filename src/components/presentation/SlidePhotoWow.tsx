@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import photoOriginal from "@/assets/photo-original.jpg";
 import photoRomantic from "@/assets/photo-romantic.png";
 import photoWedding from "@/assets/photo-wedding.jpg";
+import romanticVideo from "@/assets/romantic-video.mp4";
 import { useState, useEffect } from "react";
 
 interface Props { clickCount: number; }
@@ -10,13 +11,13 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
-    if (clickCount >= 1 && clickCount <= 3) {
-      setPhase(clickCount);
+    if (clickCount >= 1 && clickCount <= 4) {
+      setPhase(Math.min(clickCount, 3));
     }
   }, [clickCount]);
 
   const photos = [photoOriginal, photoRomantic, photoWedding];
-  const labels = ["Обычное фото", "Романтическое фото", "Свадебный образ"];
+  const labels = ["Обычное фото", "Романтическое фото", "Свадебный образ", "Оживлённое видео"];
 
   return (
     <div className="relative w-full h-full flex items-center justify-center px-8">
@@ -40,7 +41,7 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
 
         {/* Photo transformation */}
         <div className="flex justify-center mb-12">
-          <div className="relative w-[500px] h-[360px] rounded-2xl overflow-hidden" style={{ animation: "pulse-glow 3s ease-in-out infinite" }}>
+        <div className="relative w-[500px] h-[360px] rounded-2xl overflow-hidden" style={{ animation: "pulse-glow 3s ease-in-out infinite" }}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={phase}
@@ -50,11 +51,23 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
                 transition={{ duration: 0.6 }}
                 className="absolute inset-0"
               >
-                <img
-                  src={photos[phase]}
-                  alt={labels[phase]}
-                  className="w-full h-full object-cover"
-                />
+                {phase < 3 ? (
+                  <img
+                    src={photos[phase]}
+                    alt={labels[phase]}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <video
+                    src={romanticVideo}
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                  />
+                )}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-4">
                   <span className="text-lg font-semibold text-foreground">{labels[phase]}</span>
                 </div>
@@ -63,7 +76,7 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
 
             {/* Progress dots */}
             <div className="absolute top-4 right-4 flex gap-2 z-10">
-              {[0, 1, 2].map((i) => (
+              {[0, 1, 2, 3].map((i) => (
                 <div
                   key={i}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
