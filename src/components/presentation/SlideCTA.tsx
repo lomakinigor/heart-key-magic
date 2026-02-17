@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Link2, Users, TrendingUp, Rocket } from "lucide-react";
+import { Link2, Users, TrendingUp, Rocket, RotateCcw } from "lucide-react";
 
-interface Props { clickCount: number; }
+interface Props { clickCount: number; onRestart?: () => void; }
 
 const ctaItems = [
   { icon: Link2, label: "Получить свою реферальную ссылку" },
@@ -9,7 +9,7 @@ const ctaItems = [
   { icon: TrendingUp, label: "Зарабатывать на вирусном продукте" },
 ];
 
-const SlideCTA = ({ clickCount }: Props) => {
+const SlideCTA = ({ clickCount, onRestart }: Props) => {
   return (
     <div className="relative w-full h-full flex items-center justify-center px-8">
       <div className="max-w-5xl w-full text-center">
@@ -57,6 +57,15 @@ const SlideCTA = ({ clickCount }: Props) => {
                 <Rocket size={24} />
                 Перейти в приложение
               </a>
+              {onRestart && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); onRestart(); }}
+                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-lg mt-2"
+                >
+                  <RotateCcw size={18} />
+                  В начало
+                </button>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
