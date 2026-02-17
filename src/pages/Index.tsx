@@ -85,7 +85,7 @@ const Index = () => {
     <SlidePhotoWow key="photo" clickCount={clickCount} />,
     <SlideViral key="viral" clickCount={clickCount} />,
     <SlidePartner key="partner" clickCount={clickCount} />,
-    <SlideCTA key="cta" clickCount={clickCount} />,
+    <SlideCTA key="cta" clickCount={clickCount} onRestart={() => { setCurrentSlide(0); setClickCount(0); }} />,
   ];
 
   return (
