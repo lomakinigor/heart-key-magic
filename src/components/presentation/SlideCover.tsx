@@ -37,26 +37,34 @@ const SlideCover = ({ clickCount }: Props) => {
           Подбери ключик к сердцу своей возлюбленной
         </motion.h1>
 
-        <motion.p
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.7 }}
-          className="text-2xl md:text-3xl text-foreground/80 font-light mb-4"
-        >
-          Первое свидание бесплатно.
-        </motion.p>
-
-        <motion.p
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.7 }}
-          className="text-2xl md:text-3xl text-gradient-gold font-semibold mb-12"
-        >
-          Дальше — магия за 49 рублей.
-        </motion.p>
-
         <AnimatePresence>
           {clickCount >= 1 && (
+            <motion.p
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              className="text-2xl md:text-3xl text-foreground/80 font-light mb-4"
+            >
+              Первое свидание бесплатно.
+            </motion.p>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {clickCount >= 2 && (
+            <motion.p
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              className="text-2xl md:text-3xl text-gradient-gold font-semibold mb-12"
+            >
+              Дальше — магия за 49 рублей.
+            </motion.p>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {clickCount >= 2 && (
             <motion.div
               initial={{ y: 20, opacity: 0, scale: 0.9 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
