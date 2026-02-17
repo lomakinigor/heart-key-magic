@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import photoOriginal from "@/assets/photo-original.jpg";
 import photoRomantic from "@/assets/photo-romantic.png";
-import photoWedding from "@/assets/photo-wedding.jpg";
 import romanticVideo from "@/assets/romantic-video.mp4";
 import { useState, useEffect } from "react";
 
@@ -11,13 +10,13 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
-    if (clickCount >= 1 && clickCount <= 4) {
-      setPhase(Math.min(clickCount, 3));
+    if (clickCount >= 1 && clickCount <= 3) {
+      setPhase(Math.min(clickCount, 2));
     }
   }, [clickCount]);
 
-  const photos = [photoOriginal, photoRomantic, photoWedding];
-  const labels = ["Обычное фото", "Романтическое фото", "Свадебный образ", "Оживлённое видео"];
+  const photos = [photoOriginal, photoRomantic];
+  const labels = ["Обычное фото", "Романтическое фото", "Оживлённое видео"];
 
   return (
     <div className="relative w-full h-full flex items-center justify-center px-8">
@@ -51,7 +50,7 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
                 transition={{ duration: 0.6 }}
                 className="absolute inset-0"
               >
-                {phase < 3 ? (
+                {phase < 2 ? (
                   <img
                     src={photos[phase]}
                     alt={labels[phase]}
@@ -76,7 +75,7 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
 
             {/* Progress dots */}
             <div className="absolute top-4 right-4 flex gap-2 z-10">
-              {[0, 1, 2, 3].map((i) => (
+              {[0, 1, 2].map((i) => (
                 <div
                   key={i}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
