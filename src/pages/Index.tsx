@@ -5,30 +5,25 @@ import SlideCover from "@/components/presentation/SlideCover";
 import SlideProblem from "@/components/presentation/SlideProblem";
 import SlideHowItWorks from "@/components/presentation/SlideHowItWorks";
 import SlidePhotoWow from "@/components/presentation/SlidePhotoWow";
-import SlideViral from "@/components/presentation/SlideViral";
-import SlidePartner from "@/components/presentation/SlidePartner";
 import SlideCTA from "@/components/presentation/SlideCTA";
 import SlideNav from "@/components/presentation/SlideNav";
+import { TOTAL_SLIDES } from "@/lib/presentation";
 import { useEffect } from "react";
 
-const TOTAL_SLIDES = 7;
-
 const SPEAKER_NOTES = [
-  "Добро пожаловать! Сегодня я расскажу вам о революционном приложении для романтических свиданий. Наше приложение помогает создавать незабываемые моменты. Первое свидание — бесплатно!",
-  "Все мы знаем, как сложно придумать что-то новое. Рестораны, кино, прогулки — это скучно. Люди хотят эмоций, но не знают, где их взять. Мы решили эту проблему.",
-  "Всего три шага — и у вас готов уникальный сценарий свидания. Отвечаете на вопросы, получаете персональный план, делитесь и впечатляете. Всё просто!",
-  "А вот наша вау-функция: превращение обычного фото в романтическое произведение искусства. Посмотрите на трансформацию — из обычного фото в историю любви!",
-  "Самое важное — наше приложение распространяется вирусно. Каждая открытка, видео или паспорт свидания — это новый пользователь. Органический рост без затрат на рекламу.",
-  "Теперь о главном — партнёрская программа. Два уровня: вы получаете 20% с каждой покупки, ваш партнёр — 10%. Создавайте команду и зарабатывайте!",
-  "Начните прямо сейчас. Получите реферальную ссылку, запустите команду и зарабатывайте на вирусном продукте. Ссылка на приложение в описании.",
+  "Сценарист романтических свиданий придумывает необычный вечер под конкретную пару, город, бюджет и настроение.",
+  "Пользователю не нужно составлять длинное техническое задание: достаточно пяти простых ответов, чтобы получить персональный результат.",
+  "На выходе — не абстрактная идея, а готовый маршрут, подготовка, приглашение, план Б и материалы, которыми можно поделиться.",
+  "Одна фотография превращается в романтический портрет и оживлённое воспоминание. Все три состояния показаны рядом.",
+  "Это готовый цифровой продукт: AI-генерация, визуальный контент, социальное распространение, партнёрский и административный контуры.",
 ];
+
+const MAX_CLICKS = [1, 5, 5, 4, 4];
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [clickCount, setClickCount] = useState(0);
   const [showNotes, setShowNotes] = useState(false);
-
-  const maxClicks = [2, 4, 5, 5, 5, 3, 5];
 
   const nextSlide = useCallback(() => {
     if (currentSlide < TOTAL_SLIDES - 1) {
@@ -47,7 +42,7 @@ const Index = () => {
   const handleSlideClick = useCallback(() => {
     setClickCount((c) => {
       const next = c + 1;
-      if (next > maxClicks[currentSlide]) {
+      if (next > MAX_CLICKS[currentSlide]) {
         if (currentSlide < TOTAL_SLIDES - 1) {
           setCurrentSlide((s) => s + 1);
           return 0;
@@ -83,8 +78,6 @@ const Index = () => {
     <SlideProblem key="problem" clickCount={clickCount} />,
     <SlideHowItWorks key="how" clickCount={clickCount} />,
     <SlidePhotoWow key="photo" clickCount={clickCount} />,
-    <SlideViral key="viral" clickCount={clickCount} />,
-    <SlidePartner key="partner" clickCount={clickCount} />,
     <SlideCTA key="cta" clickCount={clickCount} />,
   ];
 

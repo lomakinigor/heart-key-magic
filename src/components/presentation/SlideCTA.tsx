@@ -1,12 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Link2, Users, TrendingUp, Rocket } from "lucide-react";
+import { BrainCircuit, Share2, Users, ShieldCheck, Rocket, BriefcaseBusiness } from "lucide-react";
 
 interface Props { clickCount: number; }
 
 const ctaItems = [
-  { icon: Link2, label: "Получить свою реферальную ссылку" },
-  { icon: Users, label: "Запустить команду" },
-  { icon: TrendingUp, label: "Зарабатывать на вирусном продукте" },
+  { icon: BrainCircuit, label: "AI-генерация сценариев" },
+  { icon: Share2, label: "Фото, видео и социальное распространение" },
+  { icon: Users, label: "Партнёрский кабинет" },
+  { icon: ShieldCheck, label: "Административный контур" },
 ];
 
 const SlideCTA = ({ clickCount }: Props) => {
@@ -18,10 +19,10 @@ const SlideCTA = ({ clickCount }: Props) => {
           animate={{ y: 0, opacity: 1 }}
           className="heading-display text-3xl md:text-7xl text-gradient-pink mb-8 md:mb-16"
         >
-          Сегодня вы можете:
+          Готовый цифровой продукт
         </motion.h2>
 
-        <div className="space-y-6 mb-16 max-w-2xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-3 md:gap-5 mb-8 md:mb-12 max-w-4xl mx-auto">
           {ctaItems.map((item, i) => (
             <AnimatePresence key={i}>
               {clickCount >= i + 1 && (
@@ -49,14 +50,21 @@ const SlideCTA = ({ clickCount }: Props) => {
               transition={{ type: "spring", duration: 0.6 }}
               className="space-y-8"
             >
-              <p className="text-3xl md:text-7xl font-bold heading-display text-gradient-gold">
-                Начните сегодня.
+              <p className="text-2xl md:text-5xl font-bold heading-display text-gradient-gold">
+                Посмотрите, как он работает
               </p>
-              <a href="https://mood-date-maker.lovable.app" target="_blank" rel="noopener noreferrer"
-                className="btn-magic inline-flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
-                <Rocket size={24} />
-                Перейти в приложение
-              </a>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://mood-date-maker.lovable.app" target="_blank" rel="noopener noreferrer"
+                  className="btn-magic inline-flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
+                  <Rocket size={24} />
+                  Попробовать приложение
+                </a>
+                <a href="https://portfolio-web-sigma-ruddy.vercel.app" target="_blank" rel="noopener noreferrer"
+                  className="btn-partner inline-flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
+                  <BriefcaseBusiness size={24} />
+                  Вернуться в портфолио
+                </a>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

@@ -1,12 +1,14 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { UtensilsCrossed, Film, Footprints } from "lucide-react";
+import { MapPin, WalletCards, UsersRound, Sparkles, Flame } from "lucide-react";
 
 interface Props { clickCount: number; }
 
-const boringItems = [
-  { icon: UtensilsCrossed, label: "Ресторан", delay: 0 },
-  { icon: Film, label: "Кино", delay: 0.2 },
-  { icon: Footprints, label: "Прогулка", delay: 0.4 },
+const answers = [
+  { icon: MapPin, label: "Город" },
+  { icon: WalletCards, label: "Бюджет" },
+  { icon: UsersRound, label: "Формат" },
+  { icon: Sparkles, label: "Настроение" },
+  { icon: Flame, label: "Смелость" },
 ];
 
 const SlideProblem = ({ clickCount }: Props) => {
@@ -19,63 +21,36 @@ const SlideProblem = ({ clickCount }: Props) => {
           transition={{ duration: 0.6 }}
           className="heading-display text-3xl md:text-7xl text-gradient-pink mb-8 md:mb-16"
         >
-          Почему свидания стали скучными?
+          Пять ответов — готовое свидание
         </motion.h2>
 
-        {/* Boring options */}
-        <AnimatePresence>
-          {clickCount >= 1 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="flex justify-center gap-3 md:gap-8 mb-8 md:mb-16"
-            >
-              {boringItems.map((item, i) => (
+        <div className="grid grid-cols-5 gap-2 md:gap-5 mb-8 md:mb-14">
+          {answers.map((item, i) => (
+            <AnimatePresence key={item.label}>
+              {clickCount >= i + 1 && (
                 <motion.div
-                  key={item.label}
                   initial={{ y: 40, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: item.delay, duration: 0.5 }}
-                  className="glass-card p-4 md:p-8 flex flex-col items-center gap-2 md:gap-4 w-24 md:w-48"
+                  className="glass-card p-3 md:p-6 flex flex-col items-center gap-2 md:gap-4"
                 >
-                  <item.icon size={32} className="text-muted-foreground md:w-12 md:h-12" strokeWidth={1.2} />
-                  <span className="text-sm md:text-xl text-muted-foreground line-through decoration-primary/60">
-                    {item.label}
-                  </span>
+                  <item.icon size={28} className="text-neon-pink md:w-10 md:h-10" strokeWidth={1.4} />
+                  <span className="text-xs md:text-xl text-foreground">{item.label}</span>
                 </motion.div>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Emotional message */}
-        <AnimatePresence>
-          {clickCount >= 2 && (
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7 }}
-              className="mb-6 md:mb-12"
-            >
-              <p className="text-lg md:text-3xl text-foreground/70 font-light leading-relaxed">
-                Она ждёт <span className="text-neon-pink font-semibold">эмоций</span>.
-                <br />
-                Ты не знаешь, чем <span className="text-neon-lavender font-semibold">удивить</span>.
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              )}
+            </AnimatePresence>
+          ))}
+        </div>
 
         {/* Solution */}
         <AnimatePresence>
-          {clickCount >= 3 && (
+          {clickCount >= 5 && (
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, type: "spring" }}
             >
-              <p className="text-3xl md:text-6xl font-bold text-gradient-gold heading-display">
-                Мы решили это.
+              <p className="text-2xl md:text-5xl font-bold text-gradient-gold heading-display">
+                Персональный сценарий для вашего города и настроения
               </p>
             </motion.div>
           )}

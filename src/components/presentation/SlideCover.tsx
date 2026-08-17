@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import heroCouple from "@/assets/hero-couple.jpg";
-import { KeyRound, Sparkles } from "lucide-react";
+import { HeartHandshake, Sparkles } from "lucide-react";
+import { PRESENTATION_TITLE } from "@/lib/presentation";
 
 interface Props { clickCount: number; }
 
@@ -23,7 +24,7 @@ const SlideCover = ({ clickCount }: Props) => {
               transition={{ duration: 1, ease: "easeOut" }}
               className="mb-8 inline-block"
             >
-              <KeyRound size={48} className="text-neon-gold mx-auto neon-glow-gold md:w-20 md:h-20" strokeWidth={1.5} />
+              <HeartHandshake size={48} className="text-neon-gold mx-auto neon-glow-gold md:w-20 md:h-20" strokeWidth={1.5} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -34,7 +35,7 @@ const SlideCover = ({ clickCount }: Props) => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="heading-display text-4xl md:text-8xl text-gradient-pink leading-tight mb-4 md:mb-6"
         >
-          Подбери ключик к сердцу своей возлюбленной
+          {PRESENTATION_TITLE}
         </motion.h1>
 
         <AnimatePresence>
@@ -45,26 +46,13 @@ const SlideCover = ({ clickCount }: Props) => {
               transition={{ duration: 0.7 }}
               className="text-xl md:text-3xl text-foreground/80 font-light mb-4"
             >
-              Первое свидание бесплатно.
+              Не выбирайте между кино и рестораном. Получите необычный сценарий, созданный под вашу пару.
             </motion.p>
           )}
         </AnimatePresence>
 
         <AnimatePresence>
-          {clickCount >= 2 && (
-            <motion.p
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7 }}
-              className="text-xl md:text-3xl text-gradient-gold font-semibold mb-6 md:mb-12"
-            >
-              Дальше — магия за 49 рублей.
-            </motion.p>
-          )}
-        </AnimatePresence>
-
-        <AnimatePresence>
-          {clickCount >= 2 && (
+          {clickCount >= 1 && (
             <motion.div
               initial={{ y: 20, opacity: 0, scale: 0.9 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
@@ -74,11 +62,11 @@ const SlideCover = ({ clickCount }: Props) => {
               <a href="https://mood-date-maker.lovable.app" target="_blank" rel="noopener noreferrer"
                 className="btn-magic inline-flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                 <Sparkles size={24} />
-                Запустить магию
+                Попробовать приложение
               </a>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <span className="text-lg">💕</span>
-                <span className="text-sm">Романтическое свидание</span>
+                <span className="text-sm">Первый сценарий — бесплатно</span>
               </div>
             </motion.div>
           )}
