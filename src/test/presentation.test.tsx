@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { readFileSync } from "node:fs";
 import { PRESENTATION_TITLE, TOTAL_SLIDES } from "@/lib/presentation";
 import SlidePhotoWow from "@/components/presentation/SlidePhotoWow";
 
@@ -17,5 +18,11 @@ describe("portfolio presentation", () => {
 
     expect(screen.getByText("Первый сценарий")).toBeInTheDocument();
     expect(screen.getByText("Бесплатно")).toBeInTheDocument();
+  });
+
+  it("builds assets for the GitHub Pages subpath", () => {
+    const viteConfig = readFileSync("vite.config.ts", "utf8");
+
+    expect(viteConfig).toContain('base: "/heart-key-magic/"');
   });
 });
