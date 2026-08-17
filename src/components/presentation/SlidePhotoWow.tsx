@@ -57,9 +57,10 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              className="grid grid-cols-3 gap-3 md:gap-6 max-w-3xl mx-auto"
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 max-w-5xl mx-auto"
             >
               {[
+                { feature: "Первый сценарий", price: "Бесплатно", color: "text-neon-gold" },
                 { feature: "2 сценария", price: "49 ₽", color: "text-neon-pink" },
                 { feature: "Портрет", price: "199 ₽", color: "text-neon-lavender" },
                 { feature: "Оживлённое фото", price: "499 ₽", color: "text-neon-gold" },
