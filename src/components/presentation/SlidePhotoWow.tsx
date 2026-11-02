@@ -13,7 +13,7 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
   ];
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-8">
+    <div className="relative w-full h-full flex items-center justify-center px-5 md:px-8">
       <div className="max-w-6xl w-full">
         <motion.h2
           initial={{ y: 30, opacity: 0 }}
@@ -32,18 +32,18 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
           Одна фотография. Три состояния личной истории.
         </motion.p>
 
-        <div className="grid grid-cols-3 gap-2 md:gap-6 mb-4 md:mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-4 md:mb-6">
           {visuals.map((visual, i) => (
             <AnimatePresence key={visual.label}>
               {clickCount >= i + 1 && (
-                <motion.div initial={{ y: 35, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="relative h-40 md:h-56 rounded-xl md:rounded-2xl overflow-hidden glass-card-strong">
+                <motion.div initial={{ y: 35, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="relative h-56 md:h-56 rounded-xl md:rounded-2xl overflow-hidden glass-card-strong">
                   {visual.kind === "video" ? (
                     <video src={visual.src} className="w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" />
                   ) : (
                     <img src={visual.src} alt={visual.label} className="w-full h-full object-cover" />
                   )}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent p-3 md:p-5">
-                    <span className="text-xs md:text-xl font-semibold text-foreground">{visual.label}</span>
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent p-4 md:p-5">
+                    <span className="text-base md:text-xl font-semibold text-foreground">{visual.label}</span>
                   </div>
                 </motion.div>
               )}

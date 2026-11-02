@@ -83,7 +83,7 @@ const Index = () => {
 
   return (
     <div
-      className="relative w-screen h-screen overflow-hidden slide-gradient cursor-pointer select-none"
+      className="presentation-root relative w-screen h-screen overflow-hidden slide-gradient cursor-pointer select-none touch-pan-y"
       onClick={handleSlideClick}
     >
       {/* Particles bg */}
@@ -120,13 +120,13 @@ const Index = () => {
 
       {/* Speaker notes */}
       {showNotes && (
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 glass-card-strong p-6 max-w-2xl z-50">
+        <div className="presentation-notes absolute bottom-20 left-1/2 -translate-x-1/2 glass-card-strong p-6 max-w-2xl z-50">
           <p className="text-sm text-foreground/80">{SPEAKER_NOTES[currentSlide]}</p>
         </div>
       )}
 
       {/* Hint */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-muted-foreground text-xs opacity-50 z-40">
+      <div className="presentation-hint absolute bottom-4 left-1/2 -translate-x-1/2 text-muted-foreground text-xs opacity-50 z-40">
         Клик / Пробел — далее • N — заметки • F — полный экран
       </div>
     </div>

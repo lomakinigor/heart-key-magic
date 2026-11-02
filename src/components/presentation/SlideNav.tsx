@@ -10,7 +10,7 @@ interface SlideNavProps {
 }
 
 const SlideNav = ({ current, total, onPrev, onNext, onGoTo, onRestart }: SlideNavProps) => (
-  <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 md:gap-4 glass-card px-3 py-2 md:px-6 md:py-3"
+  <div className="presentation-nav absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 md:gap-4 glass-card px-3 py-2 md:px-6 md:py-3"
     onClick={(e) => e.stopPropagation()}
   >
     <button onClick={onPrev} className="text-foreground/60 hover:text-foreground transition-colors disabled:opacity-30" disabled={current === 0}>

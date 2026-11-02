@@ -25,4 +25,16 @@ describe("portfolio presentation", () => {
 
     expect(viteConfig).toContain('base: "/heart-key-magic/"');
   });
+
+  it("uses a scrollable mobile layout with vertically stacked presentation cards", () => {
+    const index = readFileSync("src/pages/Index.tsx", "utf8");
+    const wrapper = readFileSync("src/components/presentation/SlideWrapper.tsx", "utf8");
+    const problem = readFileSync("src/components/presentation/SlideProblem.tsx", "utf8");
+    const photoWow = readFileSync("src/components/presentation/SlidePhotoWow.tsx", "utf8");
+
+    expect(index).toContain("presentation-root");
+    expect(wrapper).toContain("presentation-slide");
+    expect(problem).toContain("grid-cols-1 md:grid-cols-5");
+    expect(photoWow).toContain("grid-cols-1 md:grid-cols-3");
+  });
 });

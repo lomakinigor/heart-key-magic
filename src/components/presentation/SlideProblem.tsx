@@ -13,7 +13,7 @@ const answers = [
 
 const SlideProblem = ({ clickCount }: Props) => {
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-8">
+    <div className="relative w-full h-full flex items-center justify-center px-5 md:px-8">
       <div className="max-w-5xl w-full text-center">
         <motion.h2
           initial={{ y: 30, opacity: 0 }}
@@ -24,17 +24,17 @@ const SlideProblem = ({ clickCount }: Props) => {
           Пять ответов — готовое свидание
         </motion.h2>
 
-        <div className="grid grid-cols-5 gap-2 md:gap-5 mb-8 md:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-5 mb-8 md:mb-14">
           {answers.map((item, i) => (
             <AnimatePresence key={item.label}>
               {clickCount >= i + 1 && (
                 <motion.div
                   initial={{ y: 40, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  className="glass-card p-3 md:p-6 flex flex-col items-center gap-2 md:gap-4"
+                  className="glass-card p-4 md:p-6 flex items-center justify-center gap-3 md:flex-col md:gap-4"
                 >
                   <item.icon size={28} className="text-neon-pink md:w-10 md:h-10" strokeWidth={1.4} />
-                  <span className="text-xs md:text-xl text-foreground">{item.label}</span>
+                  <span className="text-base md:text-xl text-foreground">{item.label}</span>
                 </motion.div>
               )}
             </AnimatePresence>
