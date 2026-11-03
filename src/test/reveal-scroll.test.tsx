@@ -28,13 +28,16 @@ describe("mobile reveal scrolling", () => {
     expect(window.scrollTo).toHaveBeenCalledWith({ top: 316, behavior: "smooth" });
   });
 
-  it("returns to the top after the last reveal and on slide entry", () => {
+  it("shows the bottom after the last reveal, then resets on slide entry", () => {
+    vi.spyOn(document.documentElement, "scrollHeight", "get").mockReturnValue(2400);
+    vi.spyOn(document.body, "scrollHeight", "get").mockReturnValue(2200);
     const { rerender } = renderHook(({ slide, step }) => useRevealScroll(slide, step, 5), { initialProps: { slide: 1, step: 5 } });
     act(() => vi.advanceTimersByTime(750));
-    expect(window.scrollTo).toHaveBeenLastCalledWith({ top: 0, behavior: "smooth" });
+    expect(window.scrollTo).toHaveBeenLastCalledWith({ top: 2400, behavior: "smooth" });
     rerender({ slide: 2, step: 0 });
     act(() => vi.advanceTimersByTime(750));
     expect(window.scrollTo).toHaveBeenCalledTimes(2);
+    expect(window.scrollTo).toHaveBeenLastCalledWith({ top: 0, behavior: "smooth" });
   });
 
   it("does not scroll desktop slides", () => {

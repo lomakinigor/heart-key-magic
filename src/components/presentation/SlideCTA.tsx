@@ -12,8 +12,8 @@ const ctaItems = [
 
 const SlideCTA = ({ clickCount }: Props) => {
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-8">
-      <div className="max-w-5xl w-full text-center">
+    <div className="relative w-full min-w-0 h-full flex items-center justify-center px-5 md:px-8">
+      <div className="max-w-5xl min-w-0 w-full text-center">
         <motion.h2
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -22,7 +22,7 @@ const SlideCTA = ({ clickCount }: Props) => {
           Готовый цифровой продукт
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-3 md:gap-5 mb-8 md:mb-12 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 mb-8 md:mb-12 max-w-4xl mx-auto">
           {ctaItems.map((item, i) => (
             <AnimatePresence key={i}>
               {clickCount >= i + 1 && (
@@ -31,12 +31,12 @@ const SlideCTA = ({ clickCount }: Props) => {
                   initial={{ x: -60, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="glass-card p-4 md:p-6 flex items-center gap-3 md:gap-5"
+                  className="glass-card min-w-0 w-full p-4 md:p-6 flex items-center gap-3 md:gap-5"
                 >
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-neon-pink to-neon-lavender flex items-center justify-center flex-shrink-0">
                     <item.icon size={20} className="text-foreground md:w-6 md:h-6" />
                   </div>
-                  <span className="text-base md:text-2xl font-medium text-foreground text-left">✔ {item.label}</span>
+                  <span className="min-w-0 break-words text-base md:text-2xl font-medium text-foreground text-left">✔ {item.label}</span>
                 </motion.div>
               )}
             </AnimatePresence>

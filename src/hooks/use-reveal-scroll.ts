@@ -7,8 +7,12 @@ export function useRevealScroll(slide: number, step: number, lastStep: number) {
     // Wait for the slide transition and reveal animations to settle.
     const timer = window.setTimeout(() => {
       const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth";
-      if (step === 0 || step >= lastStep) {
+      if (step === 0) {
         window.scrollTo({ top: 0, behavior });
+        return;
+      }
+      if (step >= lastStep) {
+        window.scrollTo({ top: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight), behavior });
         return;
       }
 
