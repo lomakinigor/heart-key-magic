@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import photoOriginal from "@/assets/photo-original.jpg";
 import photoRomantic from "@/assets/photo-romantic.png";
-import romanticVideo from "@/assets/romantic-video.mp4";
+import AnimatedPhoto from "./AnimatedPhoto";
 
 interface Props { clickCount: number; }
 
@@ -9,7 +9,7 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
   const visuals = [
     { label: "Обычное фото", kind: "image", src: photoOriginal },
     { label: "Романтическое фото", kind: "image", src: photoRomantic },
-    { label: "Оживлённое фото", kind: "video", src: romanticVideo },
+    { label: "Оживлённое фото", kind: "video", src: "" },
   ];
 
   return (
@@ -38,11 +38,11 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
               {clickCount >= i + 1 && (
                 <motion.div initial={{ y: 35, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="relative h-56 md:h-56 rounded-xl md:rounded-2xl overflow-hidden glass-card-strong">
                   {visual.kind === "video" ? (
-                    <video src={visual.src} className="w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" />
+                    <AnimatedPhoto />
                   ) : (
                     <img src={visual.src} alt={visual.label} className="w-full h-full object-cover" />
                   )}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent p-4 md:p-5">
+                  <div className={`pointer-events-none absolute inset-x-0 p-4 md:p-5 ${visual.kind === "video" ? "top-0 bg-gradient-to-b from-background to-transparent" : "bottom-0 bg-gradient-to-t from-background to-transparent"}`}>
                     <span className="text-base md:text-xl font-semibold text-foreground">{visual.label}</span>
                   </div>
                 </motion.div>
