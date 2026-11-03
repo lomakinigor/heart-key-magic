@@ -9,6 +9,7 @@ import SlideCTA from "@/components/presentation/SlideCTA";
 import SlideNav from "@/components/presentation/SlideNav";
 import { TOTAL_SLIDES } from "@/lib/presentation";
 import { useEffect } from "react";
+import { useRevealScroll } from "@/hooks/use-reveal-scroll";
 
 const SPEAKER_NOTES = [
   "Сценарист романтических свиданий придумывает необычный вечер под конкретную пару, город, бюджет и настроение.",
@@ -24,6 +25,7 @@ const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [clickCount, setClickCount] = useState(0);
   const [showNotes, setShowNotes] = useState(false);
+  useRevealScroll(currentSlide, clickCount, MAX_CLICKS[currentSlide]);
 
   const nextSlide = useCallback(() => {
     if (currentSlide < TOTAL_SLIDES - 1) {

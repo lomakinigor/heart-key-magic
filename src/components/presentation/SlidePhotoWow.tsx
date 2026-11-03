@@ -36,7 +36,7 @@ const SlidePhotoWow = ({ clickCount }: Props) => {
           {visuals.map((visual, i) => (
             <AnimatePresence key={visual.label}>
               {clickCount >= i + 1 && (
-                <motion.div initial={{ y: 35, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="relative h-56 md:h-56 rounded-xl md:rounded-2xl overflow-hidden glass-card-strong">
+                <motion.div data-reveal-step={i + 1} initial={{ y: 35, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="relative h-56 md:h-56 rounded-xl md:rounded-2xl overflow-hidden glass-card-strong">
                   {visual.kind === "video" ? (
                     <AnimatedPhoto />
                   ) : (

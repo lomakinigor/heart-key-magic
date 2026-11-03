@@ -29,6 +29,7 @@ const SlideProblem = ({ clickCount }: Props) => {
             <AnimatePresence key={item.label}>
               {clickCount >= i + 1 && (
                 <motion.div
+                  data-reveal-step={i + 1}
                   initial={{ y: 40, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   className="glass-card p-4 md:p-6 flex items-center justify-center gap-3 md:flex-col md:gap-4"

@@ -28,6 +28,7 @@ const SlideHowItWorks = ({ clickCount }: Props) => {
             <AnimatePresence key={feature.label}>
               {clickCount >= i + 1 && (
                 <motion.div
+                  data-reveal-step={i + 1}
                   initial={{ y: 35, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   className="glass-card-strong p-4 md:p-6 flex flex-col items-center justify-center gap-3 text-center min-h-32 md:min-h-52"

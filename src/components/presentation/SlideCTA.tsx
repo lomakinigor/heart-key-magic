@@ -27,6 +27,7 @@ const SlideCTA = ({ clickCount }: Props) => {
             <AnimatePresence key={i}>
               {clickCount >= i + 1 && (
                 <motion.div
+                  data-reveal-step={i + 1}
                   initial={{ x: -60, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5 }}
